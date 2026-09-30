@@ -35,7 +35,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 }
 
-# 1. Поиск актуального AMI Ubuntu 22.04
+# 1. Searching for AMI Ubuntu 22.04
 data "aws_ami" "ubuntu" {
   most_recent = true
   owners      = ["099720109477"] # Canonical ID
@@ -51,13 +51,13 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-# 2. Инстанс EC2
+# 2. Instance EC2
 resource "aws_instance" "web" {
   ami                  = data.aws_ami.ubuntu.id
-  instance_type        = "t3.micro" # или t2.micro в зависимости от региона
+  instance_type        = "t3.micro" # or t2.micro 
   security_groups      = [aws_security_group.ec2_sg.name]
 
-  # Автоматическая первичная настройка при старте
+  # Setting up form the start 
   user_data = <<-EOF
               #!/bin/bash
               apt-get update -y
@@ -72,7 +72,7 @@ resource "aws_instance" "web" {
   }
 }
 
-# 3. Security Group для RDS (доступ ТОЛЬКО от нашей EC2)
+# 3. Security Group for RDS (access ONLY from EC2)
 resource "aws_security_group" "rds_sg" {
   name        = "wordpress-rds-sg-${var.environment}"
   description = "Allow MySQL access only from EC2"
@@ -82,7 +82,7 @@ resource "aws_security_group" "rds_sg" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.ec2_sg.id] # Связка Security Groups
+    security_groups = [aws_security_group.ec2_sg.id] # Stack of Security Groups
   }
 
   egress {
@@ -97,7 +97,7 @@ resource "aws_security_group" "rds_sg" {
   }
 }
 
-# 4. База данных AWS RDS MySQL
+# 4. Database AWS RDS MySQL
 resource "aws_db_instance" "default" {
   allocated_storage      = 20
   max_allocated_storage  = 20
@@ -106,9 +106,9 @@ resource "aws_db_instance" "default" {
   engine_version         = "8.0"
   instance_class         = "db.t3.micro"
   username               = "admin"
-  password               = "var.db_password" # В продакшене выносится в переменные
+  password               = "var.db_password" 
   parameter_group_name   = "default.mysql8.0"
-  skip_final_snapshot    = true # Чтобы быстро удалять в тестах без создания бэкапа
+  skip_final_snapshot    = true 
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
 
   tags = {
