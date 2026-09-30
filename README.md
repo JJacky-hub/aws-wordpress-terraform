@@ -4,7 +4,7 @@ Automated provisioning of a secure, production-ready AWS multi-tier infrastructu
 
 ---
 
-## 🏗 Architecture & Components
+##  Architecture & Components
 
 ```text
 [ Internet / Clients ]
@@ -24,7 +24,7 @@ Automated provisioning of a secure, production-ready AWS multi-tier infrastructu
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```text
 .
@@ -38,7 +38,7 @@ Automated provisioning of a secure, production-ready AWS multi-tier infrastructu
 
 ---
 
-## 🚀 Usage Guide
+##  Usage Guide
 
 ### Prerequisites
 * **Terraform** `>= 1.3.0`
