@@ -1,11 +1,9 @@
-# Игнорируем файлы состояния Terraform (содержат секреты)
 *.tfstate
 *.tfstate.*
 .terraform/
 .terraform.lock.hcl
 *.tfstate.backup
 
-# Игнорируем файл с паролями
 terraform.tfvars
 *.pem
 *.key
