@@ -7,3 +7,8 @@ output "rds_endpoint" {
   description = "Connection endpoint for the RDS MySQL instance"
   value       = aws_db_instance.default.endpoint
 }
+
+output "rds_port" {
+  description = "RDS MySQL port"
+  value       = aws_db_instance.wordpress.port
+}
