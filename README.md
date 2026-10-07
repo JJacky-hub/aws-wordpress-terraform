@@ -56,8 +56,8 @@ Terraform project demonstrating the provisioning of a small AWS web infrastructu
    Create a `terraform.tfvars` file to store sensitive variables:
    ```terraform
    terraform apply \
-  -var='ssh_cidr=YOUR_IP/32' \
-  -var='db_password=YOUR_SECURE_PASSWORD'"
+   -var='ssh_cidr=YOUR_IP/32' \
+   -var='db_password=YOUR_SECURE_PASSWORD'"
   
    ```
 
