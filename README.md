@@ -48,14 +48,17 @@ Terraform project demonstrating the provisioning of a small AWS web infrastructu
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/aws-wordpress-terraform.git
+   git clone https://github.com/JJacky-hub/aws-wordpress-terraform.git
    cd aws-wordpress-terraform
    ```
 
 2. **Define secrets:**
    Create a `terraform.tfvars` file to store sensitive variables:
    ```terraform
-   db_password = "YourSecurePasswordHere!"
+   terraform apply \
+  -var='ssh_cidr=YOUR_IP/32' \
+  -var='db_password=YOUR_SECURE_PASSWORD'"
+  
    ```
 
 3. **Initialize and Provision:**
