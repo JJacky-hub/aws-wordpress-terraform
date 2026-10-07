@@ -5,7 +5,7 @@ output "ec2_public_ip" {
 
 output "rds_endpoint" {
   description = "Connection endpoint for the RDS MySQL instance"
-  value       = aws_db_instance.default.endpoint
+  value       = aws_db_instance.wordpress.endpoint
 }
 
 output "rds_port" {
