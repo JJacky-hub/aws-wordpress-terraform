@@ -1,6 +1,6 @@
 # AWS WordPress Multi-Tier Infrastructure with Terraform (IaC)
 
-Automated provisioning of a secure, production-ready AWS multi-tier infrastructure for WordPress using **Terraform (Infrastructure as Code)**.
+Terraform project demonstrating the provisioning of a small AWS web infrastructure for WordPress using **Terraform (Infrastructure as Code)**.
 
 ---
 
